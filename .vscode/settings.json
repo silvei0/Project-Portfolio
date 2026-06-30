@@ -1,0 +1,7 @@
+{
+  "livePreview.autoRefreshPreview": "On All Changes in Editor",
+  "livePreview.openPreviewTarget": "Embedded Preview",
+  "livePreview.defaultPreviewPath": "/index.html",
+  "livePreview.useIntegratedBrowser": true,
+  "livePreview.serverKeepAliveAfterEmbeddedPreviewClose": 20
+}

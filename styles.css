@@ -24,3 +24,148 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+/* ── Keyring Navigation ───────────────────────────────────── */
+
+/*
+ * Ring centre is pinned to the screen's top-right corner.
+ * Only the bottom-left quarter of the ring is visible on screen.
+ * Tags are individually positioned along that arc.
+ */
+
+.keyring-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 1px;
+    z-index: 100;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Large ring – centre sits at the screen's top-right corner */
+.keyring-ring {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 11px solid #adadad;
+    border-radius: 50%;
+    top: -150px;   /* centre-y = 0 = screen top */
+    right: -150px; /* centre-x = screen right   */
+    background: transparent;
+    box-shadow:
+        inset 0 4px 8px rgba(255, 255, 255, 0.65),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.2),
+        2px 4px 12px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+/* ── Tags ──────────────────────────────────────────────────── */
+/*
+ * Each tag's hole is positioned to sit on the ring arc (~137 px
+ * from the screen corner).  Tags rotate around their own top-centre
+ * (the hole) for the fan / swing animation.
+ */
+
+.tag {
+    position: absolute;
+    width: 88px;
+    height: 130px;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 14px;
+    text-decoration: none;
+    transform-origin: top center;
+    transition:
+        transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1),
+        box-shadow 0.3s ease;
+    box-shadow: 2px 5px 14px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.tag-hole {
+    position: absolute;
+    top: 11px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tag-label {
+    width: 66px;
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 6px 6px;
+    text-align: center;
+}
+
+.tag-label span {
+    font-family: 'Casad Serial', serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #1a1a1a;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    transition: font-weight 0.1s ease;
+}
+
+.tag:hover .tag-label span { font-weight: 700; }
+
+.tag:hover { box-shadow: 3px 7px 20px rgba(0, 0, 0, 0.35); }
+
+/* Individual colours & arc positions
+   Holes sit at ≈137 px from the screen corner on each tag:
+   – About:    right:  8 px, top: 110 px  → hole at (52, 128) from corner
+   – Projects: right: 44 px, top:  88 px  → hole at (88, 106) from corner
+   – Contact:  right: 76 px, top:  50 px  → hole at (120, 68) from corner   */
+
+.tag-about {
+    background: #C62828;
+    top: 110px;
+    right: 8px;
+    transform: rotate(-14deg);
+    z-index: 3;
+}
+
+.tag-projects {
+    background: #1565C0;
+    top: 88px;
+    right: 44px;
+    transform: rotate(0deg);
+    z-index: 2;
+}
+
+.tag-contact {
+    background: #2E7D32;
+    top: 50px;
+    right: 76px;
+    transform: rotate(14deg);
+    z-index: 1;
+}
+
+/* ── Hover states ─────────────────────────────────────────── */
+
+/* About hovered – projects & contact swing right, slightly overlap */
+.keyring-nav:has(.tag-about:hover) .tag-about    { transform: rotate(-14deg); z-index: 4; }
+.keyring-nav:has(.tag-about:hover) .tag-projects { transform: rotate(12deg);  z-index: 1; }
+.keyring-nav:has(.tag-about:hover) .tag-contact  { transform: rotate(22deg);  z-index: 0; }
+
+/* Projects hovered – about & contact swing to opposite sides */
+.keyring-nav:has(.tag-projects:hover) .tag-about    { transform: rotate(-26deg); z-index: 1; }
+.keyring-nav:has(.tag-projects:hover) .tag-projects { transform: rotate(0deg);   z-index: 4; }
+.keyring-nav:has(.tag-projects:hover) .tag-contact  { transform: rotate(26deg);  z-index: 1; }
+
+/* Contact hovered – about & projects swing left, slightly overlap */
+.keyring-nav:has(.tag-contact:hover) .tag-about    { transform: rotate(-22deg); z-index: 0; }
+.keyring-nav:has(.tag-contact:hover) .tag-projects { transform: rotate(-12deg); z-index: 1; }
+.keyring-nav:has(.tag-contact:hover) .tag-contact  { transform: rotate(14deg);  z-index: 4; }

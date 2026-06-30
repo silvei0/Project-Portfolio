@@ -1,16 +1,21 @@
+@font-face {
+    font-family: 'Casad Serial';
+    src: url('assets/Casad-Serial-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 html, body {
     width: 100%;
     height: 100%;
 }
-
 body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Casad Serial', serif;
     min-height: 100vh;
     background-color: #fff;
     background-image: url('assets/home-page-background.png');

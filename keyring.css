@@ -1,0 +1,48 @@
+.keyring-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 1px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.keyring-ring {
+    position: absolute;
+    width: 370px;
+    height: 370px;
+    top: -200px;
+    right: -200px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.tag-home,
+.tag-about-me,
+.tag-projects,
+.tag-contact-me {
+    position: absolute;
+    pointer-events: auto;
+}
+
+.tag-home {
+    z-index: 2;
+}
+
+.tag-about-me {
+    z-index: 3;
+}
+
+.tag-projects {
+    z-index: 4;
+}
+
+.tag-contact-me {
+    z-index: 5;
+}
+
+.tag-image {
+    width: 600px;
+    display: block;
+}

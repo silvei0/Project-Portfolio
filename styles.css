@@ -10,17 +10,95 @@
     margin: 0;
     padding: 0;
 }
-html, body {
-    width: 100%;
+
+html {
     height: 100%;
 }
+
 body {
     font-family: 'Casad Serial', serif;
-    min-height: 100vh;
+    height: 100%;
+    overflow: hidden;
     background-color: #fff;
+}
+
+.scroll-pages {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior: none;
+}
+
+.page-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-home {
     background-image: url('assets/home-page-background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.X {
+    position: absolute;
+    left: 820px;
+    top: 156px;
+    width: 980px;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Y {
+    color: #cac9c6;
+    font-size: 111px;
+    line-height: 1;
+    white-space: nowrap;
+    font-weight: 525;
+    margin-bottom: 15px;
+    letter-spacing: -2px;
+    transform: scaleY(1.1);
+    transform-origin: top left;
+}
+
+.Z {
+    color: #2b5cb8;
+    font-size: 130px;
+    line-height: 1;
+    white-space: nowrap;
+    font-weight: 525;
+    letter-spacing: -2px;
+    transform: scaleY(1.1);
+    transform-origin: top left;
+}
+
+
+.page-about {
+    background: linear-gradient(160deg, #f7f5f2 0%, #ece8e1 100%);
+}
+
+.page-projects {
+    background: linear-gradient(160deg, #eef3f8 0%, #dde6f0 100%);
+}
+
+.page-contact {
+    background: linear-gradient(160deg, #f4f6f2 0%, #e4ebe0 100%);
+}
+
+.section-title {
+    font-size: 96px;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+    transform: scaleY(1.05);
 }

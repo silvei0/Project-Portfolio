@@ -2,13 +2,11 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 1px;
-    height: 1px;
     user-select: none;
     pointer-events: none;
 }
 
-.keyring-ring {
+.keyring {
     position: absolute;
     width: 370px;
     height: 370px;
@@ -27,22 +25,30 @@
 }
 
 .tag-home {
+    top: 0;
+    right: 0;
     z-index: 2;
 }
 
 .tag-about-me {
+    top: 60px;
+    right: 60px;
     z-index: 3;
 }
 
 .tag-projects {
+    top: 120px;
+    right: 120px;
     z-index: 4;
 }
 
 .tag-contact-me {
+    top: 180px;
+    right: 180px;
     z-index: 5;
 }
 
 .tag-image {
-    width: 600px;
+    width: 100px;
     display: block;
 }

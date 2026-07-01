@@ -1,0 +1,24 @@
+.keyring-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    user-select: none;
+    pointer-events: none;
+}
+.keyring-ring {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 11px solid #ff0000;
+    border-radius: 50%;
+    top: -150px;   /* centre-y = 0 = screen top */
+    right: -150px; /* centre-x = screen right   */
+    background: transparent;
+    box-shadow:
+        inset 0 4px 8px rgba(255, 255, 255, 0.65),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.2),
+        2px 4px 12px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+
+    
